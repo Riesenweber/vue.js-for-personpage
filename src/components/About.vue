@@ -7,23 +7,115 @@
       <p>Practice makes perfect</p>
       <div class="about">
           <ul>
-              <li><div class="item"><img src="../assets/local.png"></div><p>年龄/21</p></li>
-              <li><div class="item"></div><p>学历/本科</p></li>
+              <li><div class="item"><img src="../assets/age.png"></div><p>年龄/21</p></li>
+              <li><div class="item"><img src="../assets/study.png"></div><p>学历/本科</p></li>
               <li><div class="item"><img src="../assets/local.png"></div><p>坐标/成都</p></li>
-              <li><div class="item"></div><p>状态/找工作ing</p></li>
+              <li><div class="item"><img src="../assets/now.png"></div><p>状态/找工作ing</p></li>
           </ul>
+      </div>
+      <div class="famous">
+          <div class="container">
+              <h1>WITH YOU</h1>
+              <hr>
+              <p>famous sayings of famous persons</p>
+              <div class="carous">
+                  <transition name="word">
+                     <div class="carous-item" v-for="(item,index) in words" v-if="num==index" :key="index">{{item}}</div>
+                  </transition>
+              </div>
+              <div class="carous-btn">
+                  <ul>
+                      <li @mouseover="stop()" @mouseout="play()" @click="change(index)" v-for="(item,index) in words" :class="{active:index==num}"></li>
+                  </ul>
+              </div>
+          </div>
       </div>
   </div>
 </template>
 <<script>
 export default {
+    data(){
+      return {
+          words:["1 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of  darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way.",
+          "2 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of  darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way.",
+          "3 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of  darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way."],
+          num:0,
+          interval:{}
+      }
+    },
     mounted(){
-      this.$store.commit('findDom',{name:'about',dom:this.$refs.box3})
+      this.$store.commit('findDom',{name:'about',dom:this.$refs.box3});
+      this.play();
+    },
+    methods:{
+        play(){
+            this.interval=setInterval(()=>{
+                if(this.num==this.words.length-1){
+                    this.num=0;
+                }else{
+                    this.num++;
+                }
+            },2000)
+        },
+        change(index){
+               this.num=index;
+        },
+        stop(){
+               clearInterval(this.interval);
+        },
     }
 }
 </script>
 
 <style scoped>
+.word-enter-active{
+             animation: enter 1s linear;
+}
+.word-leave-active {
+    position: absolute;
+              animation: leave .5s linear;
+}
+.word-enter{
+            opacity: 0; 
+}
+.word-leave-to{
+             opacity: 1; 
+}
+@keyframes leave{
+    0%{
+        transform: translate3d(0,0,-150px)
+    }
+    25%{
+        transform: translate3d(0,0,-300px)
+    }
+    50%{
+        transform: translate3d(0,0,-300px)
+    }
+    75%{
+         transform: translate3d(-600px,0,-300px)
+    }
+    100%{
+         transform: translate3d(-900px,0,-300px)
+    }
+}
+@keyframes enter {
+    0%{
+        /* position: absolute; */
+        transform: translate3d(1800px,0,-300px);
+    }
+    25%{
+        transform: translate3d(1800px,0,-300px);
+    }
+    50%{
+        transform: translate3d(900px,0,-300px)
+    }
+    75%{
+         transform: translate3d(0px,0,-300px)
+    }
+    100%{
+         transform: translate3d(0px,0,0px)
+    }
+}
 ul li{
     list-style: none;
 }
@@ -66,6 +158,7 @@ p{
 .item{
     width:80px;
     height:80px;
+    margin: 0 auto;
     border: 2px solid #000;
     border-radius: 50%;
     display: flex;
@@ -75,5 +168,67 @@ p{
 .item img{
     width: 50%;
     height: 50%;
+}
+.famous{
+    position: relative;
+    background:url("http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/testimonials/Testimonials.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px 80px 20px 80px;
+}
+.container,.container p{
+    color:#fff;
+}
+.container hr{
+    position: relative;
+    border-color: #fff;
+}
+.carous{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    max-height: 150px;
+    overflow: hidden;
+    perspective: 1000px;
+}
+.carous-item{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    font-size: 120%;
+    font-weight: 400;
+    word-wrap:break-word;
+    text-indent: 2em;
+}
+.carous-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.carous-btn ul{
+    padding: 0;
+}
+.carous-btn ul li{
+    cursor: pointer;
+    width: 10px;
+    height:10px;
+    float: left;
+    margin-right: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.active{
+    background: #fff;
+}
+@media screen and (max-width:600px){
+    .carous-item{
+        font-size: 10px;
+    }
+    .famous{
+        padding: 20px 20px 20px 20px;
+    }
 }
 </style>

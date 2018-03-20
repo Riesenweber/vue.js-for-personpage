@@ -1,20 +1,20 @@
 <template>
   <div class="box" ref="box1">
-      <transition-group name="slide" tag="div">
-        <div @mouseover="show()" @mouseout="display()" class="item" v-for="(item,index) in imgData" v-bind:key="item.url" v-if="NUM==index" :style="{'background-image': 'url(' + item.url + ')'}">
+      <transition name="slide">
+        <div @mouseover="show()" @mouseout="display()" class="item" v-for="(item,index) in imgData" v-bind:key="index" v-if="NUM==index" :style="{'background-image': 'url(' + item.url + ')'}">
             <p>{{item.insert}}</p>
         </div>
-      </transition-group>
+      </transition>
       <div class="btn">
           <ul>
               <li @click="btnClick(index)" @mouseover="stop()" @mouseout="play()" v-for="(item,index) in imgData" :class="NUM==index?'active':''"></li>
           </ul>
       </div>
       <transition name="left">
-      <div @mouseover="next=true" @click="prevImg()" class="lb" v-show="next"><</div>
+      <div @mouseover="next=true" @click="prevImg()" class="lb bt" v-show="next"><</div>
       </transition>
       <transition name="right">
-      <div @mouseover="next=true" @click="nextImg()" class="rb" v-if="next">></div>
+      <div @mouseover="next=true" @click="nextImg()" class="rb bt" v-show="next">></div>
       </transition>
   </div>
 </template>
@@ -98,14 +98,18 @@ li{
     list-style: none;
 }
 .slide-enter-active{
-             transition: opacity .2s linear;
+             transition: all .3s ease;
 }
 .slide-leave-active {
-             transition: transform .5s linear;
-             transform: rotate(400deg) scale(0);
+              transform: translateZ(500px);
+              transition: all .3s ease;
 }
-.slide-enter,.slide-leave{
-             opacity: 0;
+.slide-enter{
+             transform: translateZ(300px);
+             opacity: .8;
+}
+.slide-leave{
+            
 }
 .left-enter-active{
              transition:transform .5s ease;
@@ -194,5 +198,21 @@ li{
 }
 .rb{
     right: 0px;
+}
+@media all and (max-width: 800px){
+.btn ul li{
+    width: 20px;
+    height: 20px;
+}
+.item{
+    background-size: cover;
+    background-position: center;
+}
+.item p{
+    font-size: 30px;
+}
+.bt{
+    display: none;
+}
 }
 </style>

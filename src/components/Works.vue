@@ -58,12 +58,12 @@ p{
     position:relative;
     background-color:#fff;
     border: none;
-    max-width:650px;
+    /* max-width:650px; */
     overflow:hidden;
 }
 .item img{
     display:block;
-    max-width:100%;
+    width:100%;
     height:auto;
     border:0;
 }

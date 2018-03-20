@@ -6,6 +6,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import Vuex from 'vuex'
+import $ from 'jquery'
+import 'jquery.easing'
 
 Vue.use(Vuex)
 Vue.config.productionTip = false

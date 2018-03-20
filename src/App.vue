@@ -6,6 +6,8 @@
     <carous></carous>
     <works></works>
     <about></about>
+    <contact></contact>
+    <Tfooter></Tfooter>
   </div>
 </template>
 
@@ -14,6 +16,8 @@ import navbar from './components/NavBar.vue'
 import carous from './components/Carous.vue'
 import works from './components/Works.vue'
 import about from './components/About.vue'
+import contact from './components/Contact.vue'
+import Tfooter from './components/Footer.vue'
 export default {
   name: 'app',
   data(){
@@ -47,34 +51,42 @@ export default {
     navbar,
     carous,
     works,
-    about
+    about,
+    contact,
+    Tfooter
   },
   methods:{
     move(key){
       // var works=document.getElementsByTagName("works")[0];
       if(key==1){
-        this.scrollAnimate(this.DOM.carous,0.05)
+        // this.scrollAnimate(this.DOM.carous,0.05)
+        $('html,body').animate({scrollTop:this.DOM.carous.offsetTop}, 1500,'easeInOutExpo');       
       }else if(key==2){
         // var all=this.DOM.works.offsetTop;
-        this.scrollAnimate(this.DOM.works,0.05);
+        $('html,body').animate({scrollTop:this.DOM.works.offsetTop}, 1500,'easeInOutExpo'); 
+        // this.scrollAnimate(this.DOM.works,0.05);
+      }else if(key==3){
+         $('html,body').animate({scrollTop:this.DOM.about.offsetTop}, 1500,'easeInOutExpo'); 
+      }else if(key==4){
+         $('html,body').animate({scrollTop:this.DOM.contact.offsetTop}, 1500,'easeInOutExpo'); 
       }
     },
-    scrollAnimate(scrollto,sp){
-        var fn=setInterval(()=>{
-          var all=scrollto.offsetTop;
-          var flag=true;
-          if(document.body.scrollTop!=all){
-            flag=false;
-          }
-          var speed=(all-document.body.scrollTop)*sp;
-          speed = speed > 0 ? Math.ceil(speed): Math.floor(speed);
-              document.body.scrollTop+=speed;
-              // console.log(document.body.scrollTop);
-              if(flag){
-                clearInterval(fn);
-              }
-          },1)
-    }
+    // scrollAnimate(scrollto,sp){
+    //     var fn=setInterval(()=>{
+    //       var all=scrollto.offsetTop;
+    //       var flag=true;
+    //       if(Math.floor(document.body.scrollTop)!=all){
+    //         flag=false;
+    //       }
+    //       var speed=(all-document.body.scrollTop)*sp;
+    //       speed = speed > 0 ? Math.ceil(speed): Math.floor(speed);
+    //           document.body.scrollTop=document.body.scrollTop+speed;
+    //           console.log(document.body.scrollTop)
+    //           if(flag){
+    //             clearInterval(fn);
+    //           }
+    //       },1)
+    // }
   }
 }
 </script>
