@@ -98,7 +98,6 @@ z-index: 100;
   .el-menu .el-button{
     width: 30px;
     height: 30px;
-    background: none;
     border: none;
     margin: 10px 20px;
     background: url("../assets/caidan.png") no-repeat;
