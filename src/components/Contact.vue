@@ -6,7 +6,7 @@
       <hr>
       <p>get in touch</p>
       <form action="#" method="get">
-          <div class="form">
+          <div class="form wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
           <input type="text" placeholder="Name">
           <input type="text" placeholder="Email">
           <textarea placeholder="Message" v-model="textarea1" rows="3"></textarea>

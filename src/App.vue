@@ -29,6 +29,7 @@ export default {
       // this.worksHeight=this.$refs.box.clientHeight;
       window.addEventListener('scroll',()=>{
         this.$store.commit('changeNav',999);
+         this.$store.commit('scroll',$(document).scrollTop()+$(window).height());
       })
   },
   computed:{
@@ -98,6 +99,15 @@ body,html{
   margin: 0;
   padding: 0;
 }
+a{
+  border:none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color:transparent;
+  outline:none;
+ }
+ li{
+   -webkit-tap-highlight-color:rgba(255,0,0,0);
+ }
 #app {
   width: 100%;
   height: 100%;

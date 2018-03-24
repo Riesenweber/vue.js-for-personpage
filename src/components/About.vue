@@ -7,10 +7,10 @@
       <p>Practice makes perfect</p>
       <div class="about">
           <ul>
-              <li><div class="item"><img src="../assets/age.png"></div><p>年龄/21</p></li>
-              <li><div class="item"><img src="../assets/study.png"></div><p>学历/本科</p></li>
-              <li><div class="item"><img src="../assets/local.png"></div><p>坐标/成都</p></li>
-              <li><div class="item"><img src="../assets/now.png"></div><p>状态/找工作ing</p></li>
+              <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><div class="item"><img src="../assets/age.png"></div><p>年龄/21</p></li>
+              <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><div class="item"><img src="../assets/study.png"></div><p>学历/本科</p></li>
+              <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><div class="item"><img src="../assets/local.png"></div><p>坐标/成都</p></li>
+              <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><div class="item"><img src="../assets/now.png"></div><p>状态/找工作ing</p></li>
           </ul>
       </div>
       <div class="famous">
@@ -20,7 +20,7 @@
               <p>famous sayings of famous persons</p>
               <div class="carous">
                   <transition name="word">
-                     <div class="carous-item" v-for="(item,index) in words" v-if="num==index" :key="index">{{item}}</div>
+                     <div class="carous-item" v-for="(item,index) in words" v-if="num==index" :key="index"><h5>{{item}}</h5></div>
                   </transition>
               </div>
               <div class="carous-btn">
@@ -36,9 +36,9 @@
 export default {
     data(){
       return {
-          words:["1 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of  darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way.",
-          "2 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of  darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way.",
-          "3 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of  darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way."],
+          words:["1 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness;",
+          "2 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness;",
+          "3 It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness;"],
           num:0,
           interval:{}
       }
@@ -188,7 +188,8 @@ p{
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    max-height: 150px;
+    /* max-height: 150px; */
+    width: 100%;
     overflow: hidden;
     perspective: 1000px;
 }
@@ -197,11 +198,16 @@ p{
     flex-wrap: nowrap;
     height: 100%;
     width: 100%;
-    margin: auto;
-    font-size: 120%;
-    font-weight: 400;
-    word-wrap:break-word;
+    justify-content: center;
+    font-size: 16px;
+    /* font-weight: 400; */
+    /* word-wrap:break-word; */
     text-indent: 2em;
+    font-family: 'Open Sans', sans-serif;
+}
+.carous-item h5{
+    line-height: 36px;
+    font-size: 22px;
 }
 .carous-btn{
     width: 100%;
@@ -224,8 +230,8 @@ p{
     background: #fff;
 }
 @media screen and (max-width:600px){
-    .carous-item{
-        font-size: 10px;
+    .carous-item h5{
+        font-size: 18px;
     }
     .famous{
         padding: 20px 20px 20px 20px;

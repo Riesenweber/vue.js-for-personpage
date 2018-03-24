@@ -6,22 +6,30 @@
       <hr>
       <p>Show All My Works Hope You Like</p>
       <el-row>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/1.jpg">
+      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/1.jpg">
           <div class="op">
            <p>旋转木马轮播图</p>
           </div></div>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/2.jpg"><div class="op"></div></div></el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/3.jpg"><div class="op"></div></div></el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/4.jpg"><div class="op"></div></div></el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/5.jpg"><div class="op"></div></div></el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/6.jpg"><div class="op"></div></div></el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/2.jpg"><div class="op"></div></div></el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/3.jpg"><div class="op"></div></div></el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/4.jpg"><div class="op"></div></div></el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/5.jpg"><div class="op"></div></div></el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="8"><div class="item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img src="http://demo.cssmoban.com/cssthemes4/sbtp_57_rise/img/portfolio/6.jpg"><div class="op"></div></div></el-col>
       </el-row>
   </div>
 </template>
 <<script>
 export default {
     mounted(){
+    var wow = new WOW({  
+    boxClass: 'wow',  
+    animateClass: 'animated',  
+    offset: 0,  
+    mobile: true,  
+    live: true  
+});  
+wow.init();  
       this.$store.commit('findDom',{name:'works',dom:this.$refs.box2})
     }
 }

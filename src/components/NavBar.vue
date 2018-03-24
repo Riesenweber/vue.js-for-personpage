@@ -2,6 +2,7 @@
   <div class="hello">
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" text-color="#ffffff" active-text-color="#cccccc" background-color="#24242a" @select="handleSelect" menu-trigger="click">
   <i></i>
+  <a class="xslogo"><img src="../assets/logo.png" alt="logo"></a>
    <el-submenu index="5">
     <template slot="title"> <el-button plain></el-button></template>
     <el-menu-item index="1">HOME</el-menu-item>
@@ -68,9 +69,25 @@ z-index: 100;
   height: 80px;
   line-height: 80px;
 }
+.el-menu--horizontal{
+  border: none !important;
+}
+.xslogo{
+  display: none;
+  flex: 7;
+  border: none;
+  float: left;
+}
+.xslogo img{
+  display: block;
+  width: 50px;
+  margin-left: 15px;
+  float: left;
+}
 @media screen and (max-width:800px){
 .el-menu{
-    justify-content: flex-start;
+  align-items: center;
+    justify-content: space-between;
   }
   .el-menu-demo>.el-menu-item:nth-of-type(n){
     display: none;
@@ -89,9 +106,13 @@ z-index: 100;
   }
   .el-submenu{
     display: block;
+    float: right;
   }
   .el-submenu-title{
     border: none;
+  }
+  .xslogo{
+    display: block;
   }
 }
 </style>

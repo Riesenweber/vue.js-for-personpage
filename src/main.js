@@ -8,7 +8,7 @@ import router from './router'
 import Vuex from 'vuex'
 import $ from 'jquery'
 import 'jquery.easing'
-
+// import WOW from '../static/wow.js'
 Vue.use(Vuex)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -16,7 +16,8 @@ Vue.use(ElementUI)
 const store=new Vuex.Store({
   state:{
     nav:0,
-    Dom:{}
+    Dom:{},
+    scroll:0
   },
   mutations:{
     changeNav(state,flag){
@@ -24,6 +25,9 @@ const store=new Vuex.Store({
     },
     findDom(state,doms){
         state.Dom[doms.name]=doms.dom;
+    },
+    scroll(state,scroll){
+      state.scroll=scroll;
     }
   }
 })
