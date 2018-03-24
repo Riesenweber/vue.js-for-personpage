@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <router-view/> -->
+    <!-- 导航栏 -->
     <navbar></navbar>
+    <!-- 导航栏结束 -->
+    <!-- 轮播图 -->
     <carous></carous>
+    <!-- 轮播图结束 -->
+    <!-- my works -->
     <works></works>
+    <!-- my works结束 -->
+    <!-- about me -->
     <about></about>
+    <!-- about me 结束 -->
+    <!-- contact me -->
     <contact></contact>
+    <!-- contact me 结束 -->
+    <!-- footer -->
     <Tfooter></Tfooter>
+    <!-- footer结束 -->
   </div>
 </template>
 
