@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="navbar">
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" text-color="#ffffff" active-text-color="#cccccc" background-color="#24242a" @select="handleSelect" menu-trigger="click">
   <i></i>
   <a class="xslogo"><img src="../assets/logo.png" alt="logo"></a>
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 <style scoped>
-.hello{
+.navbar{
 position:fixed;
 top:30px;
 left:0;

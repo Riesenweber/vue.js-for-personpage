@@ -1,5 +1,5 @@
 <template>
-  <div class="box" ref="box3">
+  <div class="aboutme" ref="box3">
       <div class="title">
           ABOUT ME
       </div>
@@ -119,7 +119,7 @@ export default {
 ul li{
     list-style: none;
 }
-.box{
+.aboutme{
     width:100%;
     background-color:white;
 }

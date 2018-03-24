@@ -1,5 +1,5 @@
 <template>
-  <div class="box" ref="box2">
+  <div class="mywork" ref="box2">
       <div class="title">
           MY WORKS
       </div>
@@ -36,7 +36,7 @@ wow.init();
 </script>
 
 <<style scoped>
-.box{
+.mywork{
     width:100%;
     background-color:white;
 }

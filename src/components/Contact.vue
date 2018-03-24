@@ -1,5 +1,5 @@
 <template>
-  <div class="box" ref="box4">
+  <div class="contact" ref="box4">
       <div class="title">
          CONTACT ME
       </div>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <<style scoped>
-.box{
+.contact{
     width:100%;
     background-color:white;
 }

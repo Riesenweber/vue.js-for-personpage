@@ -1,5 +1,5 @@
 <template>
-  <div class="box" ref="box1">
+  <div class="carous" ref="box1">
       <transition name="slide">
         <div @mouseover="show()" @mouseout="display()" class="item" v-for="(item,index) in imgData" v-bind:key="index" v-if="NUM==index" :style="{'background-image': 'url(' + item.url + ')'}">
             <p>{{item.insert}}</p>
@@ -131,7 +131,7 @@ li{
 .right-enter,.right-leave{
              transform: translateX(100%);
 }
-.box{
+.carous{
     position: relative;
     height:100%;
     width:100%;
@@ -209,6 +209,8 @@ li{
     background-position: center;
 }
 .item p{
+    width: 100%;
+    word-wrap:break-word;
     font-size: 30px;
 }
 .bt{

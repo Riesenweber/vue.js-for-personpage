@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="footer">
       <div class="box1">
       <div class="mes">
           <a>我的简历</a>[<a class="cl"  @click="outerVisible = true">预览</a>][<a class="cl">下载</a>]
